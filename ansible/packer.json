@@ -1,0 +1,26 @@
+{
+  "provisioners" : [
+    {
+      "type": "ansible",
+      "playbook_file": "playbook.yml",
+      "extra_arguments": [ "-vvv" ],
+      "user": "packer"
+
+    }
+  ],
+
+  "builders": [
+    {
+      "type": "googlecompute",
+      "image_name": "gcb-baked-{{isotime \"2006-01-02\"}}",
+      "project_id": "{{user `project_id`}}",
+      "source_image_family": "debian-9",
+      "zone": "us-east4-a",
+      "image_description": "created-with-packer",
+      "ssh_username": "packer",
+      "tags": "ssh",
+      "scopes": [ "https://www.googleapis.com/auth/cloud-platform" ]
+
+    }
+  ]
+}

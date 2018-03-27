@@ -1,0 +1,6 @@
+- name: Install packages
+  include_tasks: packages.yml
+
+- name: Docker CE install
+  include_tasks: docker.yml
+

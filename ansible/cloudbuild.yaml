@@ -1,0 +1,11 @@
+# Perform a Packer build based on the `packer.json` configuration. This Packer
+# build creates a GCE image.
+#
+# See README.md for invocation instructions.
+steps:
+- name: 'gcr.io/$PROJECT_ID/packer'
+  args:
+  - build
+  - -var
+  - project_id=$PROJECT_ID
+  - packer.json

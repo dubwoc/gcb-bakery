@@ -1,0 +1,40 @@
+- name: Add docker key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- name: install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: present
+
+- name: install ca-certificates
+  apt:
+    name: ca-certificates
+    state: present
+
+- name: install curl
+  apt:
+    name: curl
+    state: present
+
+- name: install gnupg2
+  apt:
+    name: gnupg2
+    state: present
+
+- name: install software-properties-common
+  apt:
+    name: software-properties-common
+    state: present
+
+- name: Add the repo
+  raw: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
+
+- name: run apt-get update nowt hat the repo is there or some shit
+  raw: sudo apt-get update
+
+- name: install Docker
+  apt:
+    name: docker-ce
+    state: present

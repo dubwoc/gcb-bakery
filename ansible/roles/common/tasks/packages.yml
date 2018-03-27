@@ -1,0 +1,29 @@
+- name: Install git
+  apt:
+    name: git
+    state: present
+
+- name: Install vim
+  apt:
+    name: vim
+    state: present
+
+- name: Install screen
+  apt:
+    name: screen
+    state: present
+
+- name: Install telnet
+  apt:
+    name: telnet
+    state: present
+
+- name: Install netcat-openbsd
+  apt:
+    name: netcat-openbsd
+    state: present
+
+- name: Install lsof
+  apt:
+    name: lsof
+    state: present
