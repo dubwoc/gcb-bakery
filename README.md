@@ -1,4 +1,4 @@
-This tutorial will walk you through using Google Container Builder as a way to "bake" VMs using packer + of the popular configuration management systems.
+This tutorial will walk you through using Google Container Builder as a way to "bake" VMs using packer + your choice of configuration management systems.
 
 Assumptions:
   * You have a GCP account
@@ -23,7 +23,7 @@ gcloud services enable compute.googleapis.com
 gcloud projects add-iam-policy-binding $PROJECT --member=serviceAccount:$CB_SA_EMAIL --role='roles/iam.serviceAccountUser' --role='roles/compute.instanceAdmin.v1' --role='roles/iam.serviceAccountActor'
 ```
 
-# Build the packer buildstep (from within the packer directory)
+# Build the packer buildstep
 
 ```
 cd packer_buildstep
@@ -36,4 +36,3 @@ gcloud container builds submit --config cloudbuild.yaml .
 cd ansible
 gcloud container builds submit --config cloudbuild.yaml .
 ```
-
